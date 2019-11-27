@@ -1,0 +1,207 @@
+/* nav-bar */
+.logout {
+  width: 50px;
+  height: auto;
+  padding-top: 10px;
+  padding-right: 10px;
+  border: 1px solid #000000;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+.contact {
+  width: 50px;
+  height: auto;
+  padding-right: 5px;
+  padding-top: 10px;
+  margin-right: 30px;
+  border: 1px solid #000000;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+.logout:hover {
+  color: #000000;
+  background: #9FC800;
+}
+
+.contact:hover {
+  color: #000000;
+  background: #9FC800;
+}
+
+/* side bar */
+/* cards */
+.col-md-6 {
+  top: 100px;
+}
+
+.col-md-8 {
+  width: 50%;
+}
+
+/* date picker */
+.Button {
+background-color:#BEBEBE;
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+border-radius:10px;
+border:1px solid #BEBEBE;
+display:inline-block;
+cursor:pointer;
+color: gray;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size:15px;
+padding:5px 5px;
+text-decoration:none;
+text-shadow:0px 0px 0px #BEBEBE;
+}
+
+.Button:hover {
+background-color:#fff;
+text-decoration:none;
+color: #000000;
+
+}
+
+.Button:active {
+position:relative;
+}
+
+.datepicker{
+  position: relative;
+    border:1px solid lightgray;
+}
+
+input {
+    border:0;
+}
+
+label {
+color : gray;
+}
+
+p {
+  color: rgb(33, 37, 41);
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 24px;
+  font-weight: 500;
+  height: 28px;
+  line-height: 28.8px;
+  margin-block-end: 12px;
+  margin-block-start: 0px;
+  margin-bottom: 12px;
+  margin-inline-end: 0px;
+  margin-inline-start: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  overflow-wrap: break-word;
+  text-align: left;
+  text-size-adjust: 100%;
+  width: 692.656px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* side bar */
+.dropdown-toggle {
+  color: rgb(33, 37, 41);
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 20px;
+  font-weight: 500;
+  height: 28px;
+  line-height: 28.8px;
+  margin-block-end: 12px;
+  margin-block-start: 0px;
+  margin-bottom: 12px;
+  margin-inline-end: 0px;
+  margin-inline-start: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  overflow-wrap: break-word;
+  text-align: left;
+  text-size-adjust: 100%;
+  width: 692.656px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.nav-link:hover{
+  background-color: rgba(255, 255, 255, 0.23);
+}
+
+#pageSubmenu{
+  color: rgb(33, 37, 41);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 18px;
+}
+
+.collapsible {
+  color: #000000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  line-height: 28.8px;
+}
+
+/* images */
+.location {
+  width: 30px;
+  height: auto;
+  padding-right: 5px;
+}
+
+.info {
+  width: 30px;
+  height: auto;
+  padding-right: 5px;
+}
+
+.gecko{
+  position: absolute;
+  left: 400px;
+}
+
+/* graphs */
+.myButton {
+background-color:#BEBEBE;
+-moz-border-radius:21px;
+-webkit-border-radius:21px;
+border-radius:18px;
+border:1px solid #BEBEBE;
+display:inline-block;
+cursor:pointer;
+color:#fff;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size:18px;
+padding:10px 25px;
+text-decoration:none;
+text-shadow:0px 0px 0px #BEBEBE;
+}
+
+.myButton:hover {
+background-color:#fff;
+text-decoration:none;
+color: #000000;
+
+}
+
+.myButton:active {
+position:relative;
+}
+
+/* footer */
+
+.footer p {
+    color: orange;
+    margin-left:1000px;
+}
+.footer{
+  background-color: #808080;
+  padding-bottom: 175px;
+}

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#000000">
+  <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#000000">
+  <title>Olam Dashboard</title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+  <link href="css/light-bootstrap-dashboard.css?v=2.0.0 " rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <link href="twentytwenty.css" rel="stylesheet" type="text/css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="jquery.twentytwenty.js"></script>
+  <script src="jquery.event.move.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script src="leaflet/leaflet.js" charset="utf-8"></script>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+  <!-- <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="js/farms.js" charset="utf-8"></script>
+  <script src="js/chart.js" charset="utf-8"></script>
+
+  <!-- Add a side by side to a Leaflet map -->
+  <script src="js/leaflet-side-by-side.js"></script>
+
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sidebar" data-image="images/coffee.jpg">
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a href="https://www.olamgroup.com/" target="_blank"><img src="images/Olam.png" width="230px" height="auto"></a>
+        </div>
+        <ul class="nav">
+          <li class="nav-item active">
+            <a class="nav-link" style="padding-left: 2px;">
+              <i class="nc-icon nc-chart-pie-35"></i>
+              <p style="font-size: 20px; color: #000000;">Select country below</p>
+            </a>
+          </li>
+          <li class="nav-link" style="padding-left: 2px;">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="text-decoration: none; color: #fff;"><img class="location" src="images/location.svg" alt="">Countries</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+              <!-- <li> -->
+              <!-- <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Brazil</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                      <li>
+                        <a href="#">Page 1</a>
+                      </li>
+                      <li>
+                        <a href="#">Page 2</a>
+                      </li>
+                      <li>
+                        <a href="#">Page 3</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tanzania</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                      <li>
+                        <a href="#">Page 1</a>
+                      </li>
+                      <li>
+                        <a href="#">Page 2</a>
+                      </li>
+                      <li>
+                        <a href="#">Page 3</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Laos</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                      <li>
+                        <a href="#">Page 1</a>
+                      </li>
+                      <li>
+                        <a href="#">Page 2</a>
+                      </li>
+                      <li>
+                        <a href="#">Page 3</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li> -->
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="text-decoration: none; color: #fff;"><img class="location" src="images/location.svg" alt="">Zambia</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                  <a href="#" style="text-decoration: none; color: #fff;">• Isanya</a>
+                </li>
+                <li>
+                  <a href="#" style="text-decoration: none; color: #fff;">• Kateshi</a>
+                </li>
+                <li>
+                  <a href="#" style="text-decoration: none; color: #fff;">• Lukulu</a>
+                </li>
+                <li>
+                  <a href="#" style="text-decoration: none; color: #fff;">• Luombe</a>
+                </li>
+                <li>
+                  <a href="#" style="text-decoration: none; color: #fff;">• Ngoli</a>
+                </li>
+                <li>
+                  <a href="#" style="text-decoration: none; color: #fff;">• Nsunzu</a>
+                </li>
+              </ul>
+          </li>
+        </ul>
+        <li class="nav-link" style="padding-left: 2px;">
+          <a href="#" data-toggle="collapse" aria-expanded="false" class="collapsible" style="text-decoration: none; color: #fff;"><img class="info" src="images/info.jpg" />About</a>
+          <div class="content">
+            <p style="font-size: 15px; color: #fff; text-transform: capitalize;">This portal presents NDVI <br />derived for various Olam <br />farms.NDVI quantifies <br />vegetation health by <br />measuring the difference <br />between Near
+              <br />InfraRed
+              and Red light. <br />It ranges from -1 to 1.<br />1 being very healthy <br />vegetation.
+            </p>
+          </div>
+        </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse justify-content-end" id="navigation" style="position: static;">
+            <ul class="nav navbar-nav mr-auto">
+              <div class="">
+                <p style="padding-left: 20px; padding-top: 20px; padding-bottom: 50px; font-size: 30px;">
+                  ISANYA
+                </p>
+              </div>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a id="log" href="https://www.olamgroup.com/contactus.html" target="_blank"><img class="contact" src="images/contact.png" /></a>
+              </li>
+              <li class="nav-item">
+                <a id="log" href="http://olam.geogecko.com/index.php" target="_blank"><img class="logout" src="images/home.png" /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="" style="padding-left: 50px;">
+        <p class="">Select dates</p>
+        <div class='datepicker'>
+          <label for="from">From:</label>
+          <input type="text" id="from" name="from">
+          <label for="to">To:</label>
+          <input type="text" id="to" name="to">
+          <a href="#" class="Button">Apply</a>
+        </div>
+      </div>
+
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- <div class="dates"<h4>date</h4></div> -->
+            <div class="col-md-8" style="width: 100px; height:500px;">
+              <div class="card ">
+                <div class="card-header ">
+                  <h4 class="card-title">NDVI Difference</h4>
+                </div>
+                <div class="card-body ">
+                    
+                  <div id="twentytwenty-container">
+                      <div id='mymap' style=" height:600px;"></div>
+                    <!-- <img src="images/ndvi13.jpeg" />
+                    <img src="images/ndvi_23.jpeg" /> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4" style="width: 100px; height:400px;">
+              <div class="card ">
+                <div class="card-header ">
+                  <h4 class="card-title">Farm Performance</h4>
+                </div>
+                <div class="card-body" style="height:400px;">
+                  <div id="chartContainer" style="height:300px;"></div>
+                  <div style="top: 50px;">
+                    <p style="font-size: 18px;">Best Farm: Kateshi</p>
+                    <p style="font-size: 18px;">Worst Farm: Ngoli</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6" style="top: 350px;">
+              <div class="card ">
+                <div class="card-header ">
+                  <h4 class="card-title">Calculate pivot performance</h4>
+                  <p class="card-category">(Select a pivot)</p>
+                </div>
+                <div class="card-body ">
+                  <div id="map" style="height: 400px;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6" style="top: 350px;">
+              <div class="card  card-tasks">
+                <div class="card-header ">
+                  <h4 class="card-title">Generate pivot statistics</h4>
+                  <span>
+                    <a href="#" class="myButton">Generate Average Chart</a>
+                    <a href="#" class="myButton" style="margin-left: 150px;">Generate Standard Deviation Chart</a>
+                  </span>
+                </div>
+                <div class="card-body ">
+                  <canvas id="horizontalBar"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <p><a href="https://www.geogecko.com/" target="_blank"><img class="gecko" src="images/geogecko.svg"></a>Developed by:<br />Geo Gecko Lmt.<br />Plot 30, Bukoto Street,<br />Kamwokya,<br />Kampala, Uganda<br />Info@geogecko.com</p>
+  </div>
+
+
+  <script>
+    // $(window).on("load", function() {
+    //   $("#twentytwenty-container").twentytwenty();
+    // });
+
+    // Create the sidebyside slider Leaflet maps
+    var map = L.map('mymap').setView([-8.81126,31.33066], 14);
+
+    var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+}).addTo(map);
+
+    var mapLayer1 = L.tileLayer.wms('https://geogecko.gis-cdn.net/geoserver/ows?', {
+          layers: 'olamMosaics:Zambia_ndviData',
+          dim_location: "Isanya/Isanya_20190130.tif",
+          transparent: true,
+          format: 'image/png'
+    }).addTo(map);
+
+    var mapLayer2 = L.tileLayer.wms('https://geogecko.gis-cdn.net/geoserver/ows?', {
+          layers: 'olamMosaics:Zambia_ndviData',
+          dim_location: "Isanya/Isanya_20180510.tif",
+          transparent: true,
+          format: 'image/png'
+    }).addTo(map);
+  
+    L.control.sideBySide(mapLayer1, mapLayer2).addTo(map);
+  </script>
+
+  <script>
+    // Creating map options
+    var mapOptions = {
+      center: [-8.82009, 31.32271],
+      zoom: 13
+    }
+
+    // OSM Baselayer
+
+    var bounds = [
+      [-250, -250],
+      [100, 100]
+    ];
+
+    // Creating a map object
+    var map = new L.map('map', mapOptions);
+
+    // Creating a Layer object
+    var layer = new L.TileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png');
+
+    // Adding layer to the map
+    map.addLayer(layer);
+
+    var scale = L.control.scale(); // Creating scale control
+    scale.addTo(map); // Adding scale control to the map
+
+    // Options for the marker
+    var markerOptions = {
+      title: "MyLocation",
+      clickable: true,
+      draggable: true
+    }
+
+    // Creating a marker
+    var marker = new L.Marker([-8.4883999, 31.1955], markerOptions);
+
+    // loading GeoJSON file - Here my html and usa_adm.geojson file resides in same folder
+    $.getJSON("Isanya_WGS84.geojson", function(data) {
+      // L.geoJson function is used to parse geojson file and load on to map
+      L.geoJson(data).addTo(map);
+    });
+    // Adding pop-up to the marker
+    marker.bindPopup('Isanya').openPopup();
+
+    // Adding marker to the map
+    marker.addTo(map);
+  </script>
+
+<script>
+new Chart(document.getElementById("horizontalBar"), {
+  "type": "horizontalBar",
+  "data": {
+    "labels": ["Pivot 1", "Pivot 2", "Pivot 3", "Pivot 4", "Pivot 5", "Pivot 6", "Pivot 7", "Pivot 8"],
+    "datasets": [{
+        "label": "Start Date",
+        "data": [0.2, 0.53, 0.6, 1.2, 0.6, 0.3, 0.4, 0.1],
+        "fill": false,
+        "backgroundColor": ["rgba(255, 0, 0, 0.2)", "rgba(255, 0, 0, 0.2)",
+          "rgba(255, 0, 0, 0.2)", "rgba(255, 0, 0, 0.2)", "rgba(255, 0, 0, 0.2)",
+          "rgba(255, 0, 0, 0.2)", "rgba(255, 0, 0, 0.2)", "rgba(255, 0, 0, 0.2)"
+        ],
+        "borderColor": ["rgb(255, 0, 0)", "rgb(255, 0, 0)", "rgb(255, 0, 0)",
+          "rgb(255, 0, 0)", "rgb(255, 0, 0)", "rgb(255, 0, 0)", "rgb(255, 0, 0)", "rgb(255, 0, 0)", "rgb(255, 0, 0)"
+        ],
+        "borderWidth": 1
+      },
+      {
+        "label": "End Date",
+        "data": [0.5, 0.3, 0.5, 0.1, 0.8, 0.9, 0.6, 0.7],
+        "fill": false,
+        "backgroundColor": ["rgba(54, 162, 235, 0.2)", "rgba(54, 162, 235, 0.2)",
+          "rgba(54, 162, 235, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(54, 162, 235, 0.2)",
+          "rgba(54, 162, 235, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(54, 162, 235, 0.2)"
+        ],
+        "borderColor": ["rgb(54, 162, 235)", "rgb(54, 162, 235)", "rgb(54, 162, 235)",
+          "rgb(54, 162, 235)", "rgb(54, 162, 235)", "rgb(54, 162, 235)", "rgb(54, 162, 235)", "rgb(54, 162, 235)"
+        ],
+        "borderWidth": 1
+      }
+    ],
+  },
+  "options": {
+    "scales": {
+      "xAxes": [{
+        "ticks": {
+          "beginAtZero": true
+        }
+      }]
+    }
+  }
+});
+</script>
+
+
+
+  <script>
+    $(function() {
+      $("#from").datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1,
+        onClose: function(selectedDate) {
+          $("#to").datepicker("option", "minDate", selectedDate);
+        }
+      });
+      $("#to").datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1,
+        onClose: function(selectedDate) {
+          $("#from").datepicker("option", "maxDate", selectedDate);
+        }
+      });
+    });
+  </script>
+
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  </script>
+
+
+
+</body>
+<!--   Core JS Files   -->
+<script src="js/core/popper.min.js" type="text/javascript"></script>
+<script src="js/core/bootstrap.min.js" type="text/javascript"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="js/plugins/bootstrap-switch.js"></script>
+<!--  Notifications Plugin    -->
+<script src="js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
+<script src="js/light-bootstrap-dashboard.js?v=2.0.0 " type="text/javascript"></script>
+
+</html>
