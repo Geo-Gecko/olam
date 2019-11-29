@@ -1,5 +1,7 @@
 
 let available_dates = [];
+let selectedFromDate;
+let selectedToDate;
 
 let months = [
     "Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -23,12 +25,10 @@ function handleWebsiteJson(data) {
     parsed_zam_isa.values.forEach((p) => available_dates.push(p.key))
 }
 
-
 /* utility functions */
 function days_(date) {
     let m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
-    m = months[m-1];
-    if($.inArray(y + '-' + m + '-' + d, available_dates) != -1) {
+    if($.inArray(y + '-' +  months[m] + '-' + d, available_dates) != -1) {
         return [true];
     }
 	return [false];
@@ -42,6 +42,7 @@ $(function () {
 		beforeShowDay: days_,
         onClose: function (selectedDate) {
             $("#to").datepicker("option", "minDate", selectedDate);
+            selectedFromDate = selectedDate;
         }
     });
     $("#to").datepicker({
@@ -51,6 +52,7 @@ $(function () {
 		beforeShowDay: days_,
         onClose: function (selectedDate) {
             $("#from").datepicker("option", "maxDate", selectedDate);
+            selectedToDate = selectedDate
         }
     });
 });
