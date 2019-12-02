@@ -24,7 +24,6 @@ function handleWebsiteJson(data) {
     let parsed_zam_isa = JSON.parse(zamb_isanya[0].properties.info)
     parsed_zam_isa.values.forEach((p) => available_dates.push(p.key))
 }
-
 /* utility functions */
 function days_(date) {
     let m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
