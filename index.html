@@ -47,8 +47,6 @@
   <!-- Add a side by side to a Leaflet map -->
   <script src="js/leaflet-side-by-side.js"></script>
 
-  <script src="js/farms.js" charset="utf-8"></script>
-  <script src="js/chart.js" charset="utf-8"></script>
 
 </head>
 
@@ -164,8 +162,9 @@
           </div>
           <div class="container"></div>
           <div class="row">
-            <div class="col-md-12" style="width: 100px; height:400px;">
-                <div id="chartContainer" style="height:400px;">
+            <div class="col-md-12" data-num="0">
+                Zone: <select class="zonedata"></select>
+                <div id="chartContainer" >
               </div>
             </div>
           </div>
@@ -205,6 +204,8 @@
     <p><a href="https://www.geogecko.com/" target="_blank"><img class="gecko" src="images/geogecko.svg"></a>Developed by:<br />Geo Gecko Lmt.<br />Plot 30, Bukoto Street,<br />Kamwokya,<br />Kampala, Uganda<br />Info@geogecko.com</p>
   </div> -->
 
+  <script src="js/farms.js" charset="utf-8"></script>
+  <script src="js/chart.js" charset="utf-8"></script>
 
   <script src="utilities/date_picker.js"></script>
   <script src="utilities/slider.js"></script>
