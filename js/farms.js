@@ -4,11 +4,22 @@ let set_mgt_zones = new Set()
 let mgt_zones = []
 
 let ndvi_mean_date = [];
-let ndvi_mean_data = [];
 let setZonePlot;
+let setDataTypeplot;
+let traces;
 
 let mgtZoneSelector = document.querySelector('.zonedata');
 function assignOptions(textArray, selector) {
+  textArray.forEach(i => {
+      let currentOption = document.createElement('option');
+      currentOption.text = i;
+      selector.appendChild(currentOption);
+  })
+}
+
+
+let dataTypeSelector = document.querySelector('.datatype');
+function assignDTypeOptions(textArray, selector) {
   textArray.forEach(i => {
       let currentOption = document.createElement('option');
       currentOption.text = i;
@@ -40,48 +51,61 @@ $.ajax(jsonUrl_,
   });
 
   setZonePlot = (zone) => {
+    let ndvi_mean_data = [];
+    let ndvi_std_data = [];
     
     data.features.forEach(feature => {
 
       if (feature.properties.Name == zone) {
         let ndvi_mean_std_ = Object.keys(feature.properties).slice(start=4)
       
-        let these_values = []
+        let these_mean_values = [];
+        let these_std_values = [];
         ndvi_mean_std_.forEach(e => {
           if (e.slice(start=e.length - 4) === 'mean'){
-            let date_ = e.split("_")[1];
-            these_values.push(feature.properties[e]);
+            these_mean_values.push(feature.properties[e]);
+          };
+
+          if (e.slice(start=e.length - 3) === 'std'){
+            these_std_values.push(feature.properties[e]);
           };
         });
+
         ndvi_mean_data.push({
           type: 'scatter',
           mode: 'lines+marker',
           line: {shape: 'spline'},
           name: `unit_id_${feature.properties.unit_id}`,
           x: ndvi_mean_date,
-          y: these_values
+          y: these_mean_values
+        });
+
+        ndvi_std_data.push({
+          type: 'scatter',
+          mode: 'lines+marker',
+          line: {shape: 'spline'},
+          name: `unit_id_${feature.properties.unit_id}`,
+          x: ndvi_mean_date,
+          y: these_std_values
         });
       };  
     });
-  
-  
-  Plotly.newPlot('chartContainer', ndvi_mean_data, {
-    title: {
-      text:'Farm Performance',
-      font: {
-        family: 'Times New, roman',
-        size: 24
-      }
-    },
-    autosize: false,
-    width: 1030,
-    height:700,},
-  { showSendToCloud: true }
-  );
+
+    traces = {"std": ndvi_std_data, "mean": ndvi_mean_data}
+    setDTypePlot = (dataType) => Plotly.newPlot('chartContainer', traces[dataType], {
+        title: {
+          text:`Farm Performance for ${zone}`,
+          font: {
+            family: 'Times New, roman',
+            size: 24
+          }
+        },
+        autosize: false,
+        width: 1030,
+        height:650,
+      });
+  };
 };
-
-
-}
 
 
 window.onload = function() {
@@ -101,9 +125,17 @@ window.onload = function() {
 
   // initial plot
   setZonePlot(mgt_zones[0]);
+  setDTypePlot("mean");
 
   function updateZone() {
     setZonePlot(mgtZoneSelector.value);
+    setDTypePlot("mean");
   };
   mgtZoneSelector.addEventListener('change', updateZone, false);
+
+  assignDTypeOptions(['mean', 'std'], dataTypeSelector)
+  function updateDType() {
+    setDTypePlot(dataTypeSelector.value);
+  };
+  dataTypeSelector.addEventListener('change', updateDType, false);
 };
