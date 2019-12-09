@@ -36,15 +36,15 @@
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-  crossorigin=""/>
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-  crossorigin=""></script>
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-  
+
   <!-- Add plotly cdn library -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <!-- Add a side by side to a Leaflet map -->
@@ -54,131 +54,44 @@
 </head>
 
 <body>
-  <div class="wrapper">
-    <div class="sidebar" data-image="images/coffee.jpg">
-      <div class="sidebar-wrapper">
-        <div class="logo">
-          <a href="https://www.olamgroup.com/" target="_blank"><img src="images/Olam.png" width="230px"
-              height="auto"></a>
-        </div>
-        <ul class="nav">
-          <li class="nav-item active">
-            <a class="nav-link" style="padding-left: 2px;">
-              <i class="nc-icon nc-chart-pie-35"></i>
-              <p style="font-size: 20px; color: #000000;">Select country below</p>
-            </a>
-          </li>
-          <li class="nav-link" style="padding-left: 2px;">
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
-              style="text-decoration: none; color: #fff;"><img class="location" src="images/location.svg"
-                alt="">Countries</a>
-            <ul class="collapse list-unstyled" id="homeSubmenu">
-              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
-                style="text-decoration: none; color: #fff;"><img class="location" src="images/location.svg"
-                  alt="">Zambia</a>
-              <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>
-                  <a href="#" style="text-decoration: none; color: #fff;">• Isanya</a>
-                </li>
-                <li>
-                  <a href="#" style="text-decoration: none; color: #fff;">• Kateshi</a>
-                </li>
-                <li>
-                  <a href="#" style="text-decoration: none; color: #fff;">• Lukulu</a>
-                </li>
-                <li>
-                  <a href="#" style="text-decoration: none; color: #fff;">• Luombe</a>
-                </li>
-                <li>
-                  <a href="#" style="text-decoration: none; color: #fff;">• Ngoli</a>
-                </li>
-                <li>
-                  <a href="#" style="text-decoration: none; color: #fff;">• Nsunzu</a>
-                </li>
-              </ul>
-          </li>
-        </ul>
-        <li class="nav-link" style="padding-left: 2px;">
-          <a href="#" data-toggle="collapse" aria-expanded="false" class="collapsible"
-            style="text-decoration: none; color: #fff;"><img class="info" src="images/info.jpg" />About</a>
-          <div class="content">
-            <p style="font-size: 15px; color: #fff; text-transform: capitalize;">This portal presents NDVI <br />derived
-              for various Olam <br />farms.NDVI quantifies <br />vegetation health by <br />measuring the difference
-              <br />between Near
-              <br />InfraRed
-              and Red light. <br />It ranges from -1 to 1.<br />1 being very healthy <br />vegetation.
-            </p>
-          </div>
-        </li>
-        </ul>
-      </div>
-    </div>
-    <div class="main-panel">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg " color-on-scroll="500">
-        <div class="container-fluid">
-          <div class="collapse navbar-collapse justify-content-end" id="navigation" style="position: static;">
-            <ul class="nav navbar-nav mr-auto">
-              <div class="">
-                <p style="padding-left: 20px; padding-top: 20px; padding-bottom: 50px; font-size: 30px;">
-                  ISANYA
-                </p>
-              </div>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a id="log" href="https://www.olamgroup.com/contactus.html" target="_blank"><img class="contact"
-                    src="images/contact.png" /></a>
-              </li>
-              <li class="nav-item">
-                <a id="log" href="http://olam.geogecko.com/index.php" target="_blank"><img class="logout"
-                    src="images/home.png" /></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-      <!-- End Navbar -->
-      <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card ">
-                <div class="card-header ">
-                  <div class='datepicker'>
-                    <h4 class="card-title">NDVI difference</h4>
-                    <label for="from">From:</label>
-                    <input type="text" id="from" name="from">
-                    <label for="to">To:</label>
-                    <input type="text" id="to" name="to">
-                    <a id="new_map" href="#" class="Button">Apply</a>
-                  </div>
-                </div>
-                <div class="card-body ">
-                  <div id="twentytwenty-container">
-                    <div id='mymap' style=" height:600px;"></div>
-                  </div>
-                </div>
+  <div class="logo">
+    <a href="https://www.olamgroup.com/" target="_blank"><img src="images/Olam.png" width="230px" height="auto"></a>
+  </div>
+  <div class="content">
+    <div class="container-fluid ">
+      <div class="row  align-middle" id="ndvi">
+        <div class="col-md-12 card">
+          <!-- <div class="card align-middle" > -->
+          <div class="card-header">
+            <div class='datepicker'>
+              <div class="float-left">NDVI difference</div>
+              <div class="float-right">
+                <label for="from">From:</label>
+                <input type="text" id="from" name="from">
+                <label for="to">To:</label>
+                <input type="text" id="to" name="to">
+                <a id="new_map" href="#" class="Button">Apply</a>
               </div>
             </div>
           </div>
-          <div class="container"></div>
-          <div class="row">
-            <div class="col-md-12" data-num="0">
-                Zone: <select class="zonedata"></select>
-                DataType: <select class="datatype"></select>
-                <div id="chartContainer" >
-              </div>
+          <div class="card-body ">
+            <div id="twentytwenty-container">
+              <div id='mymap' style=" height:500px"></div>
             </div>
           </div>
+          <!-- </div> -->
         </div>
       </div>
     </div>
   </div>
-  <!-- <div class="footer">
-    <p><a href="https://www.geogecko.com/" target="_blank"><img class="gecko" src="images/geogecko.svg"></a>Developed by:<br />Geo Gecko Lmt.<br />Plot 30, Bukoto Street,<br />Kamwokya,<br />Kampala, Uganda<br />Info@geogecko.com</p>
-  </div> -->
+  <div class="container-fluid" style="height: 200%; width: 90%"></div>
+  <div class="row" id="farmPerformance">
+    <div class="col-md-12" data-num="0">
+      Zone: <select class="zonedata"></select>
+      DataType: <select class="datatype"></select>
+      <div id="chartContainer"></div>
+    </div>
+  </div>
 
   <script src="js/farms.js" charset="utf-8"></script>
   <script src="js/chart.js" charset="utf-8"></script>
@@ -186,29 +99,10 @@
   <script src="utilities/date_picker.js"></script>
   <script src="utilities/slider.js"></script>
 
-  <script src="utilities/map_options.js"></script>
+  <script src="utilities/farm_performance.js">
 
-  <script src="utilities/farm_performance.js"></script>
-
-
-
-
-  <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
-      });
-    }
   </script>
+
 
 
 

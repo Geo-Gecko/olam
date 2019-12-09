@@ -1,13 +1,36 @@
-/* nav-bar */
-.logout {
-  width: 50px;
-  height: auto;
-  padding-top: 10px;
-  padding-right: 10px;
-  border: 1px solid #000000;
-  padding: 10px 10px;
-  border-radius: 10px;
+
+body {
+  background: linear-gradient( rgba(0, 0, 0, 0.445), rgba(0, 0, 0, 0.5) ), url("../images/coffee.jpg");
+  background-size: cover;
+
 }
+
+#ndvi {
+  width: 95%;
+  margin-left: 2.5%;
+  scroll-snap-type: y mandatory;
+}
+
+#farmPerformance {
+  margin-left: 2.5%;
+  scroll-snap-type: y mandatory;
+}
+
+#chartContainer {
+  width: 96%;
+}
+
+.card-header {
+  background-color: none !important;
+}
+
+/* .container-fluid {
+  scroll-snap-type: y mandatory;
+}
+
+.child {
+  scroll-snap-align: start;
+} */
 
 .contact {
   width: 50px;
@@ -20,15 +43,6 @@
   border-radius: 10px;
 }
 
-.logout:hover {
-  color: #000000;
-  background: #9FC800;
-}
-
-.contact:hover {
-  color: #000000;
-  background: #9FC800;
-}
 
 /* side bar */
 /* cards */
@@ -160,39 +174,6 @@ p {
   width: 30px;
   height: auto;
   padding-right: 5px;
-}
-
-.gecko{
-  position: absolute;
-  left: 400px;
-}
-
-/* graphs */
-.myButton {
-background-color:#BEBEBE;
--moz-border-radius:21px;
--webkit-border-radius:21px;
-border-radius:18px;
-border:1px solid #BEBEBE;
-display:inline-block;
-cursor:pointer;
-color:#fff;
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-font-size:18px;
-padding:10px 25px;
-text-decoration:none;
-text-shadow:0px 0px 0px #BEBEBE;
-}
-
-.myButton:hover {
-background-color:#fff;
-text-decoration:none;
-color: #000000;
-
-}
-
-.myButton:active {
-position:relative;
 }
 
 /* footer */
