@@ -35,17 +35,18 @@
   <script src="jquery.event.move.js"></script>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-  <script src="leaflet/leaflet.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+  crossorigin=""></script>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
-  <!-- <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.js"></script> -->
   <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-  <script src="js/farms.js" charset="utf-8"></script>
-  <script src="js/chart.js" charset="utf-8"></script>
-
+  
+  <!-- Add plotly cdn library -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <!-- Add a side by side to a Leaflet map -->
   <script src="js/leaflet-side-by-side.js"></script>
 
@@ -138,77 +139,36 @@
         </div>
       </nav>
 
-      <div class="" style="padding-left: 50px;">
-        <p class="">Select dates</p>
-        <div class='datepicker'>
-          <label for="from">From:</label>
-          <input type="text" id="from" name="from">
-          <label for="to">To:</label>
-          <input type="text" id="to" name="to">
-          <a id="new_map" href="#" class="Button">Apply</a>
-        </div>
-      </div>
-
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <!-- <div class="dates"<h4>date</h4></div> -->
-            <div class="col-md-8" style="width: 100px; height:500px;">
+            <div class="col-md-12">
               <div class="card ">
                 <div class="card-header ">
-                  <h4 class="card-title">NDVI Difference</h4>
-                </div>
-                <div class="card-body ">
-
-                  <div id="twentytwenty-container">
-                    <div id='mymap' style=" height:600px;"></div>
-                    <!-- <img src="images/ndvi13.jpeg" />
-                    <img src="images/ndvi_23.jpeg" /> -->
+                  <div class='datepicker'>
+                    <h4 class="card-title">NDVI difference</h4>
+                    <label for="from">From:</label>
+                    <input type="text" id="from" name="from">
+                    <label for="to">To:</label>
+                    <input type="text" id="to" name="to">
+                    <a id="new_map" href="#" class="Button">Apply</a>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-4" style="width: 100px; height:400px;">
-              <div class="card ">
-                <div class="card-header ">
-                  <h4 class="card-title">Farm Performance</h4>
-                </div>
-                <div class="card-body" style="height:400px;">
-                  <div id="chartContainer" style="height:300px;"></div>
-                  <div style="top: 50px;">
-                    <p style="font-size: 18px;">Best Farm: Kateshi</p>
-                    <p style="font-size: 18px;">Worst Farm: Ngoli</p>
+                <div class="card-body ">
+                  <div id="twentytwenty-container">
+                    <div id='mymap' style=" height:600px;"></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <div class="container"></div>
           <div class="row">
-            <div class="col-md-6" style="top: 350px;">
-              <div class="card ">
-                <div class="card-header ">
-                  <h4 class="card-title">Calculate pivot performance</h4>
-                  <p class="card-category">(Select a pivot)</p>
-                </div>
-                <div class="card-body ">
-                  <div id="map" style="height: 400px;"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6" style="top: 350px;">
-              <div class="card  card-tasks">
-                <div class="card-header ">
-                  <h4 class="card-title">Generate pivot statistics</h4>
-                  <span>
-                    <a href="#" class="myButton">Generate Average Chart</a>
-                    <a href="#" class="myButton" style="margin-left: 150px;">Generate Standard Deviation Chart</a>
-                  </span>
-                </div>
-                <div class="card-body ">
-                  <canvas id="farmPerformance"></canvas>
-                </div>
+            <div class="col-md-12" data-num="0">
+                Zone: <select class="zonedata"></select>
+                DataType: <select class="datatype"></select>
+                <div id="chartContainer" >
               </div>
             </div>
           </div>
@@ -220,6 +180,8 @@
     <p><a href="https://www.geogecko.com/" target="_blank"><img class="gecko" src="images/geogecko.svg"></a>Developed by:<br />Geo Gecko Lmt.<br />Plot 30, Bukoto Street,<br />Kamwokya,<br />Kampala, Uganda<br />Info@geogecko.com</p>
   </div> -->
 
+  <script src="js/farms.js" charset="utf-8"></script>
+  <script src="js/chart.js" charset="utf-8"></script>
 
   <script src="utilities/date_picker.js"></script>
   <script src="utilities/slider.js"></script>
