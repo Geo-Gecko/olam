@@ -92,18 +92,20 @@ $.ajax(jsonUrl_,
     });
 
     traces = {"std": ndvi_std_data, "mean": ndvi_mean_data}
-    setDTypePlot = (dataType) => Plotly.newPlot('chartContainer', traces[dataType], {
+    setDTypePlot = (dataType) => Plotly.newPlot(
+      'chartContainer',
+      traces[dataType],
+      {
         title: {
           text:`Farm Performance for ${zone}`,
           font: {
             family: 'Times New, roman',
             size: 24
           }
-        },
-        autosize: false,
-        width: 1030,
-        height:650,
-      });
+        }
+      },
+      {responsive: true}
+    );
   };
 };
 
