@@ -10,12 +10,6 @@ var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
     attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 }).addTo(map);
 
-
-// loading GeoJSON file - Here my html and usa_adm.geojson file resides in same folder
-$.getJSON("Isanya_WGS84.geojson", function (data) {
-    // L.geoJson function is used to parse geojson file and load on to map
-    L.geoJson(data).addTo(map);
-    });
     
 $('#new_map').click( () => {
 
