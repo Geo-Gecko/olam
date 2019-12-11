@@ -59,6 +59,7 @@ function handleWebsiteJson_(data) {
   setZonePlot = (zone) => {
     let ndvi_mean_data = [];
     let ndvi_std_data = [];
+    let ndvi_cov_data = [];
 
     data.features.forEach(feature => {
 
@@ -77,6 +78,13 @@ function handleWebsiteJson_(data) {
           };
         });
 
+        let these_cov_values = [];
+        for (let i = 0; i < these_mean_values.length; i++) {
+          these_cov_values.push(
+            these_std_values[i]/these_mean_values[i]
+          );
+        };
+
         ndvi_mean_data.push({
           type: 'scatter',
           mode: 'lines+marker',
@@ -94,10 +102,19 @@ function handleWebsiteJson_(data) {
           x: ndvi_mean_date,
           y: these_std_values
         });
+
+        ndvi_cov_data.push({
+          type: 'scatter',
+          mode: 'lines+marker',
+          line: { shape: 'spline' },
+          name: `unit_id_${feature.properties.unit_id}`,
+          x: ndvi_mean_date,
+          y: these_cov_values
+        });
       };
     });
 
-    traces = { "std": ndvi_std_data, "mean": ndvi_mean_data }
+    traces = { "std": ndvi_std_data, "mean": ndvi_mean_data, "cov": ndvi_cov_data }
     setDTypePlot = (dataType) => Plotly.newPlot(
       'chartContainer',
       traces[dataType],
@@ -108,42 +125,11 @@ function handleWebsiteJson_(data) {
             family: 'Times New, roman',
             size: 24
           }
-        }
+        },
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)'
       },
       { responsive: true }
     );
   };
-};
-
-
-window.onload = function () {
-
-  mgt_zones.sort((a, b) => {
-    a = parseInt(a.split(' ')[1]);
-    b = parseInt(b.split(' ')[1]);
-    if (a < b) {
-      return -1;
-    } else if (a > b) {
-      return 1;
-    }
-    return 0;
-  });
-  assignOptions(mgt_zones, mgtZoneSelector);
-
-
-  // initial plot
-  setZonePlot(mgt_zones[0]);
-  setDTypePlot("mean");
-
-  function updateZone() {
-    setZonePlot(mgtZoneSelector.value);
-    setDTypePlot("mean");
-  };
-  mgtZoneSelector.addEventListener('change', updateZone, false);
-
-  assignDTypeOptions(['mean', 'std'], dataTypeSelector)
-  function updateDType() {
-    setDTypePlot(dataTypeSelector.value);
-  };
-  dataTypeSelector.addEventListener('change', updateDType, false);
 };
