@@ -12,12 +12,10 @@ body {
 }
 
 #farmPerformance {
-  margin-left: 2.5%;
+  margin-left: 4%;
   scroll-snap-type: y mandatory;
-}
-
-#chartContainer {
-  width: 96%;
+  background: #fff;
+  width: 92.5%;
 }
 
 .card-header {
@@ -182,11 +180,12 @@ p {
     color: orange;
     margin-left:1000px;
 }
+
 .footer{
   background-color: #808080;
   padding-bottom: 175px;
 }
 
 .datepicker {
-  z-index: 9999 !important;;
+  z-index: 9999 !important;
 }
