@@ -1,37 +1,21 @@
 
 
 let set_mgt_zones = new Set()
-let mgt_zones = []
+let mgt_zones = [];
+let use_in_date_picker;
 
 let ndvi_mean_date = [];
 let setZonePlot;
 let setDataTypeplot;
 let traces;
 
-let mgtZoneSelector = document.querySelector('.zonedata');
-function assignOptions(textArray, selector) {
-  textArray.forEach(i => {
-    let currentOption = document.createElement('option');
-    currentOption.text = i;
-    selector.appendChild(currentOption);
-  })
-}
 
-
-let dataTypeSelector = document.querySelector('.datatype');
-function assignDTypeOptions(textArray, selector) {
-  textArray.forEach(i => {
-    let currentOption = document.createElement('option');
-    currentOption.text = i;
-    selector.appendChild(currentOption);
-  })
-}
-
-
-let jsonUrl_ = "https://geogecko.gis-cdn.net/geoserver/Olam_Vector/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Olam_Vector:Isanya&outputFormat=text/javascript&format_options=callback:handleWebsiteJson_";
+let callVector = (selectedFarm) => {
+let jsonUrl_ = `https://geogecko.gis-cdn.net/geoserver/Olam_Vector/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Olam_Vector:${selectedFarm}&outputFormat=text/javascript&format_options=callback:handleWebsiteJson_`;
 $.ajax(jsonUrl_,
   { dataType: "jsonp" }
 ).done(() => { });
+}
 
 function handleWebsiteJson_(data) {
   // get date values...hopefully they are the same..tihi
@@ -54,6 +38,16 @@ function handleWebsiteJson_(data) {
 
     set_mgt_zones.add(feature.properties.Name)
     mgt_zones = Array.from(set_mgt_zones)
+    mgt_zones.sort((a, b) => {
+      a = parseInt(a.split(' ')[1]);
+      b = parseInt(b.split(' ')[1]);
+      if (a < b) {
+        return -1;
+      } else if (a > b) {
+        return 1;
+      }
+      return 0;
+    });
   });
 
   setZonePlot = (zone) => {
@@ -81,7 +75,7 @@ function handleWebsiteJson_(data) {
         let these_cov_values = [];
         for (let i = 0; i < these_mean_values.length; i++) {
           these_cov_values.push(
-            these_std_values[i]/these_mean_values[i]
+            these_std_values[i] / these_mean_values[i]
           );
         };
 
@@ -132,4 +126,6 @@ function handleWebsiteJson_(data) {
       { responsive: true }
     );
   };
+  setZonePlot(mgt_zones[0]);
+  setDTypePlot("mean");
 };

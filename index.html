@@ -65,12 +65,15 @@
         <div class="col-md-12 card">
           <!-- <div class="card align-middle" > -->
           <div class="card-header">
-            <div class='datepicker'>
-              <div class="float-left">NDVI difference</div>
-              <div class="float-right">
+            <div class='datepicker row'>
+              <div class="col-md-4 float-left">NDVI difference </div>
+              <div class="col-md-4  float-left">
+                Farm: <select class="farmdata"></select>
+              </div>
+              <div class="col-md-4 float-right">
                 <label for="from">From:</label>
                 <input type="text" id="from" name="from">
-                <label for="to">To:</label>
+                <br/><label for="to">To:</label>
                 <input type="text" id="to" name="to">
                 <a id="new_map" href="#" class="Button">Apply</a>
               </div>
@@ -88,7 +91,7 @@
   </div>
   <br /><br />
   <div class="row" id="farmPerformance">
-    <div class="mt-5 col-md-12" data-num="0">
+    <div class="mt-2 col-md-12">
       Zone: <select class="zonedata"></select>
       DataType: <select class="datatype"></select>
       <div id="chartContainer"></div>
@@ -96,6 +99,7 @@
   </div>
   <br />
 
+  <script src="utilities/map_views.js" charset="utf-8"></script>
   <script src="js/farms.js" charset="utf-8"></script>
   <script src="js/chart.js" charset="utf-8"></script>
 
