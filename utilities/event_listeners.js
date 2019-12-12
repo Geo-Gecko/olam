@@ -1,34 +1,18 @@
 
 
-
-let mgtZoneSelector = document.querySelector('.zonedata');
 let dataTypeSelector = document.querySelector('.datatype');
 let farmSelector = document.querySelector('.farmdata');
 
 
-function assignOptions(textArray, selector) {
-    textArray.forEach(i => {
-        let currentOption = document.createElement('option');
-        currentOption.text = i;
-        selector.appendChild(currentOption);
-    })
-}
-
 
 window.onload = function () {
-
-    // initial farmMap
-    callFarm('Zambia/Isanya');
 
     // initial mean_data
     callVector('Isanya')
 
-    assignOptions(mgt_zones, mgtZoneSelector);
-    function updateZone() {
-        setZonePlot(mgtZoneSelector.value);
-        setDTypePlot("mean");
-    };
-    mgtZoneSelector.addEventListener('change', updateZone, false);
+    // initial farmMap
+    callFarm('Zambia/Isanya');
+
 
     assignOptions(['mean', 'std', 'cov'], dataTypeSelector)
     function updateDType() {

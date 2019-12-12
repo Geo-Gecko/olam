@@ -1,5 +1,5 @@
 
-
+let mgtZoneSelector = document.querySelector('.zonedata');
 let set_mgt_zones = new Set()
 let mgt_zones = [];
 let use_in_date_picker;
@@ -9,12 +9,27 @@ let setZonePlot;
 let setDataTypeplot;
 let traces;
 
+// this should be in event_listeners.js
+let assignOptions = (textArray, selector) => {
+
+  $(`.${selector.className}`).empty();
+
+  textArray.forEach(i => {
+    let currentOption = document.createElement('option');
+    currentOption.text = i;
+    selector.appendChild(currentOption);
+  })
+}
+function updateZone() {
+  setZonePlot(mgtZoneSelector.value);
+  setDTypePlot("mean");
+};
 
 let callVector = (selectedFarm) => {
-let jsonUrl_ = `https://geogecko.gis-cdn.net/geoserver/Olam_Vector/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Olam_Vector:${selectedFarm}&outputFormat=text/javascript&format_options=callback:handleWebsiteJson_`;
-$.ajax(jsonUrl_,
-  { dataType: "jsonp" }
-).done(() => { });
+  let jsonUrl_ = `https://geogecko.gis-cdn.net/geoserver/Olam_Vector/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Olam_Vector:${selectedFarm}&outputFormat=text/javascript&format_options=callback:handleWebsiteJson_`;
+  $.ajax(jsonUrl_,
+    { dataType: "jsonp" }
+  ).done(() => { });
 }
 
 function handleWebsiteJson_(data) {
@@ -28,6 +43,9 @@ function handleWebsiteJson_(data) {
     };
   });
 
+
+  set_mgt_zones.clear()
+  mgt_zones.length = 0
   // get mgt zones as unique strings for the buttons
   data.features.forEach(feature => {
 
@@ -38,17 +56,21 @@ function handleWebsiteJson_(data) {
 
     set_mgt_zones.add(feature.properties.Name)
     mgt_zones = Array.from(set_mgt_zones)
-    mgt_zones.sort((a, b) => {
-      a = parseInt(a.split(' ')[1]);
-      b = parseInt(b.split(' ')[1]);
-      if (a < b) {
-        return -1;
-      } else if (a > b) {
-        return 1;
-      }
-      return 0;
-    });
   });
+
+  mgt_zones.sort((a, b) => {
+    a = parseInt(a.split(' ')[1]);
+    b = parseInt(b.split(' ')[1]);
+    if (a < b) {
+      return -1;
+    } else if (a > b) {
+      return 1;
+    }
+    return 0;
+  });
+  assignOptions(mgt_zones, mgtZoneSelector);
+  mgtZoneSelector.addEventListener('change', updateZone, false);
+
 
   setZonePlot = (zone) => {
     let ndvi_mean_data = [];
@@ -126,6 +148,7 @@ function handleWebsiteJson_(data) {
       { responsive: true }
     );
   };
+
   setZonePlot(mgt_zones[0]);
   setDTypePlot("mean");
 };
