@@ -14,6 +14,11 @@ var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
 $('#new_map').click( () => {
 
     // reformat date to geoserver-format
+    if (use_in_date_picker) {
+        use_in_date_picker = use_in_date_picker.split("/")[1]
+    } else {
+        use_in_date_picker = "Isanya/Isanya"
+    }
     let p_ = selectedFromDate.split("/").reverse()
     let m_ = p_[2]
     p_[2] = p_[1]
@@ -31,7 +36,7 @@ $('#new_map').click( () => {
     }
     tile_layer1 = L.tileLayer.wms('https://geogecko.gis-cdn.net/geoserver/ows?', {
         layers: 'olamMosaics:Zambia_ndviData',
-        dim_location: `Isanya/Isanya_${p_}.tif`,
+        dim_location: `${use_in_date_picker}_${p_}.tif`,
         transparent: true,
         format: 'image/png'
     }).addTo(map);
@@ -45,7 +50,7 @@ $('#new_map').click( () => {
 
     tile_layer2 = L.tileLayer.wms('https://geogecko.gis-cdn.net/geoserver/ows?', {
         layers: 'olamMosaics:Zambia_ndviData',
-        dim_location: `Isanya/Isanya_${q_}.tif`,
+        dim_location: `${use_in_date_picker}_${q_}.tif`,
         transparent: true,
         format: 'image/png'
     }).addTo(map);
