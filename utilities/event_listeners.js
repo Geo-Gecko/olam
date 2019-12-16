@@ -13,7 +13,6 @@ window.onload = function () {
     // initial farmMap
     callFarm('Zambia/Isanya');
 
-
     assignOptions(['mean', 'std', 'cov'], dataTypeSelector)
     function updateDType() {
         setDTypePlot(dataTypeSelector.value);
