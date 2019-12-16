@@ -4,7 +4,7 @@ let set_mgt_zones = new Set()
 let mgt_zones = [];
 let use_in_date_picker;
 
-let ndvi_mean_date = [];
+let ndvi_date = [];
 let setZonePlot;
 let setDataTypeplot;
 let traces;
@@ -12,6 +12,7 @@ let traces;
 // this should be in event_listeners.js
 let assignOptions = (textArray, selector) => {
 
+  // empty dropdowns if this function is called again
   $(`.${selector.className}`).empty();
 
   textArray.forEach(i => {
@@ -39,9 +40,10 @@ function handleWebsiteJson_(data) {
     if (e.slice(start = e.length - 4) === 'mean') {
       let date_ = e.split("_")[1];
       date_ = date_.slice(0, 4) + '-' + date_.slice(4, 6) + '-' + date_.slice(start = 6)
-      ndvi_mean_date.push(date_);
+      ndvi_date.push(date_);
     };
   });
+  ndvi_date.sort()
 
 
   set_mgt_zones.clear()
@@ -105,8 +107,10 @@ function handleWebsiteJson_(data) {
           type: 'scatter',
           mode: 'lines+marker',
           line: { shape: 'spline' },
-          name: `unit_id_${feature.properties.unit_id}`,
-          x: ndvi_mean_date,
+          name: `unit_${
+            feature.properties.unit_id ? feature.properties.unit_id : feature.properties.SUB_BLOCK
+          }`,
+          x: ndvi_date,
           y: these_mean_values
         });
 
@@ -114,8 +118,10 @@ function handleWebsiteJson_(data) {
           type: 'scatter',
           mode: 'lines+marker',
           line: { shape: 'spline' },
-          name: `unit_id_${feature.properties.unit_id}`,
-          x: ndvi_mean_date,
+          name: `unit_${
+            feature.properties.unit_id ? feature.properties.unit_id : feature.properties.SUB_BLOCK
+          }`,
+          x: ndvi_date,
           y: these_std_values
         });
 
@@ -123,8 +129,10 @@ function handleWebsiteJson_(data) {
           type: 'scatter',
           mode: 'lines+marker',
           line: { shape: 'spline' },
-          name: `unit_id_${feature.properties.unit_id}`,
-          x: ndvi_mean_date,
+          name: `unit_${
+            feature.properties.unit_id ? feature.properties.unit_id : feature.properties.SUB_BLOCK
+          }`,
+          x: ndvi_date,
           y: these_cov_values
         });
       };
