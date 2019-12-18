@@ -6,6 +6,7 @@ let slider;
 let tile_layer1;
 let tile_layer2;
 let mosaic_layer;
+let layers;
 
 var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
@@ -20,7 +21,7 @@ $('#new_map').click( () => {
 
 
     // get mosaic layer
-    let layers = {
+    layers = {
         "Zambia": ["Isanya", "Lukulu", "Luombe", "Ngoli", "Kateshi", "Nsunzu"],
         "Laos": ["Phetlamka", "TH", "TM", "Xekatam", "Kongtoun"],
         "Tanzania": ["DivisionA", "DivisionB", "DivisionC"]
