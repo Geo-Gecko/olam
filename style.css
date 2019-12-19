@@ -10,6 +10,10 @@ select {
   background: none;
 }
 
+#csv {
+  color: green;
+}
+
 #ndvi {
   width: 95%;
   margin-left: 2.5%;
@@ -91,6 +95,7 @@ position:relative;
 
 input {
     border:0;
+    max-width: 25% !important;
 }
 
 label {

@@ -54,6 +54,10 @@
   <!-- use axios to fetch data -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+  <!-- toastr for popup messages -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 </head>
 
 <body>
@@ -67,14 +71,17 @@
         <div class="col-md-12 card">
           <div class="card-header">
             <div class='datepicker row'>
-              <div class="col-md-4 float-left">NDVI difference </div>
-              <div class="col-md-4  float-left">
+              <div class="col-md-3 float-left"><h4>NDVI difference</h4> </div>
+              <div class="col-md-3  float-left">
                 Farm: <select class="farmdata"></select>
               </div>
-              <div class="col-md-4 float-right">
+              <div class="col-md-3  float-left">
+                <a id="csv">Download CSV</a>
+              </div>
+              <div class="col-md-3 float-right">
                 <label for="from">From:</label>
                 <input type="text" id="from" name="from">
-                <br /><label for="to">To:</label>
+                <span></span><label for="to">To:</label>
                 <input type="text" id="to" name="to">
                 <a id="new_map" href="#" class="Button">Apply</a>
               </div>

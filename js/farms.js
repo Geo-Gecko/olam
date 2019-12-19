@@ -27,6 +27,12 @@ function updateZone() {
 };
 
 let callVector = (selectedFarm) => {
+
+  document.getElementById("csv").setAttribute(
+    "href",
+    `https://geogecko.gis-cdn.net/geoserver/Olam_Vector/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Olam_Vector:${selectedFarm}&outputFormat=csv`
+  )
+
   let jsonUrl_ = `https://geogecko.gis-cdn.net/geoserver/Olam_Vector/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Olam_Vector:${selectedFarm}&outputFormat=text/javascript&format_options=callback:handleWebsiteJson_`;
   $.ajax(jsonUrl_,
     { dataType: "jsonp" }
