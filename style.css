@@ -10,13 +10,8 @@ select {
   background: none;
 }
 
-.snappc {
-  max-width: 100% !important;
-  scroll-snap-type: y mandatory;
-}
-
-.snappch {
-  scroll-snap-align: start;
+#csv {
+  color: green;
 }
 
 #ndvi {
@@ -100,6 +95,7 @@ position:relative;
 
 input {
     border:0;
+    max-width: 25% !important;
 }
 
 label {
