@@ -2,6 +2,7 @@
 
 let dataTypeSelector = document.querySelector('.datatype');
 let farmSelector = document.querySelector('.farmdata');
+let farmComparisonSelector = document.querySelector('.farmcomparisondata');
 
 
 
@@ -12,6 +13,9 @@ window.onload = function () {
 
     // initial farmMap
     callFarm('Zambia/Isanya');
+
+    // initial farm comparison chart
+    compareFarms("Zambia")
 
     assignOptions(['mean', 'std', 'cov'], dataTypeSelector)
     function updateDType() {
@@ -27,4 +31,10 @@ window.onload = function () {
         callVector(use_in_date_picker.split("/")[1])
     };
     farmSelector.addEventListener('change', updateFarm, false);
+
+    assignOptions(['Zambia', 'Laos', 'Tanzania'], farmComparisonSelector)
+    function updatRegion() {
+        compareFarms(farmComparisonSelector.value);
+    };
+    farmComparisonSelector.addEventListener('change', updatRegion, false);
 };

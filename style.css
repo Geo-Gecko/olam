@@ -6,6 +6,10 @@ body {
   background-attachment: fixed;
 }
 
+select {
+  background: none;
+}
+
 #ndvi {
   width: 95%;
   margin-left: 2.5%;

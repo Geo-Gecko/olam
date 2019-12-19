@@ -5,7 +5,7 @@ let mgt_zones = [];
 let use_in_date_picker;
 
 let ndvi_date = [];
-let setZonePlot;
+// let setZonePlot;
 let setDataTypeplot;
 let traces;
 
@@ -53,7 +53,10 @@ function handleWebsiteJson_(data) {
 
     // get the different fields for a region
     if (feature.geometry) {
-      L.geoJson(feature).addTo(map);
+      L.geoJson(
+        feature,
+        {onEachFeature: onEachFeature}
+      ).addTo(map);
     }
 
     set_mgt_zones.add(feature.properties.Name)
