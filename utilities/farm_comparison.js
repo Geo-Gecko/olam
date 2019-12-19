@@ -61,6 +61,7 @@ compareFarms = (region) => {
         });
       });
 
+      Plotly.purge("farmComparisonContainer")
       Plotly.newPlot(
         'farmComparisonContainer',
         ndvi_mean_data,

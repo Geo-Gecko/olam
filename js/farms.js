@@ -61,7 +61,7 @@ function handleWebsiteJson_(data) {
     if (feature.geometry) {
       L.geoJson(
         feature,
-        {onEachFeature: onEachFeature}
+        { onEachFeature: onEachFeature }
       ).addTo(map);
     }
 
@@ -123,7 +123,7 @@ function handleWebsiteJson_(data) {
           line: { shape: 'spline' },
           name: `unit_${
             feature.properties.unit_id ? feature.properties.unit_id : feature.properties.SUB_BLOCK
-          }`,
+            }`,
           x: ndvi_date,
           y: these_mean_values
         });
@@ -134,7 +134,7 @@ function handleWebsiteJson_(data) {
           line: { shape: 'spline' },
           name: `unit_${
             feature.properties.unit_id ? feature.properties.unit_id : feature.properties.SUB_BLOCK
-          }`,
+            }`,
           x: ndvi_date,
           y: these_std_values
         });
@@ -145,7 +145,7 @@ function handleWebsiteJson_(data) {
           line: { shape: 'spline' },
           name: `unit_${
             feature.properties.unit_id ? feature.properties.unit_id : feature.properties.SUB_BLOCK
-          }`,
+            }`,
           x: ndvi_date,
           y: these_cov_values
         });
@@ -153,22 +153,25 @@ function handleWebsiteJson_(data) {
     });
 
     traces = { "std": ndvi_std_data, "mean": ndvi_mean_data, "cov": ndvi_cov_data }
-    setDTypePlot = (dataType) => Plotly.newPlot(
-      'chartContainer',
-      traces[dataType],
-      {
-        title: {
-          text: `Farm Performance for ${zone}`,
-          font: {
-            family: 'Times New, roman',
-            size: 24
-          }
+    setDTypePlot = (dataType) => {
+      Plotly.purge("chartContainer")
+      Plotly.newPlot(
+        'chartContainer',
+        traces[dataType],
+        {
+          title: {
+            text: `Farm Performance for ${zone}`,
+            font: {
+              family: 'Times New, roman',
+              size: 24
+            }
+          },
+          paper_bgcolor: 'rgba(0,0,0,0)',
+          plot_bgcolor: 'rgba(0,0,0,0)'
         },
-        paper_bgcolor: 'rgba(0,0,0,0)',
-        plot_bgcolor: 'rgba(0,0,0,0)'
-      },
-      { responsive: true }
-    );
+        { responsive: true }
+      );
+    }
   };
 
   setZonePlot(mgt_zones[0]);

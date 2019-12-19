@@ -93,9 +93,12 @@ position:relative;
     border:1px solid lightgray;
 }
 
+#from, #to {
+  max-width: 25% !important;
+}
+
 input {
     border:0;
-    max-width: 25% !important;
 }
 
 label {
