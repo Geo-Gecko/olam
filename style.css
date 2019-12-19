@@ -2,7 +2,12 @@
 body {
   background: linear-gradient( rgba(0, 0, 0, 0.445), rgba(0, 0, 0, 0.5) ), url("images/coffee.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
+select {
+  background: none;
 }
 
 #ndvi {
@@ -22,13 +27,12 @@ body {
   background-color: none !important;
 }
 
-/* .container-fluid {
-  scroll-snap-type: y mandatory;
+#geo-gecko {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  padding-left: 2.25%;
 }
-
-.child {
-  scroll-snap-align: start;
-} */
 
 .contact {
   width: 50px;

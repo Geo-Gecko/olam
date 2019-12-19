@@ -5,7 +5,7 @@ let mgt_zones = [];
 let use_in_date_picker;
 
 let ndvi_date = [];
-let setZonePlot;
+// let setZonePlot;
 let setDataTypeplot;
 let traces;
 
@@ -36,6 +36,7 @@ let callVector = (selectedFarm) => {
 function handleWebsiteJson_(data) {
   // get date values...hopefully they are the same..tihi
   let ndvi_mean_std = Object.keys(data.features[0].properties).slice(start = 4)
+  ndvi_date.length = 0
   ndvi_mean_std.forEach(e => {
     if (e.slice(start = e.length - 4) === 'mean') {
       let date_ = e.split("_")[1];
@@ -43,7 +44,6 @@ function handleWebsiteJson_(data) {
       ndvi_date.push(date_);
     };
   });
-  ndvi_date.sort()
 
 
   set_mgt_zones.clear()
@@ -53,7 +53,10 @@ function handleWebsiteJson_(data) {
 
     // get the different fields for a region
     if (feature.geometry) {
-      L.geoJson(feature).addTo(map);
+      L.geoJson(
+        feature,
+        {onEachFeature: onEachFeature}
+      ).addTo(map);
     }
 
     set_mgt_zones.add(feature.properties.Name)
@@ -82,7 +85,11 @@ function handleWebsiteJson_(data) {
     data.features.forEach(feature => {
 
       if (feature.properties.Name == zone) {
-        let ndvi_mean_std_ = Object.keys(feature.properties).slice(start = 4)
+        let ndvi_mean_std_ = Object.keys(feature.properties).filter((str_) => {
+          if (str_.split("_")[0] === feature.id.split(".")[0]) {
+            return str_
+          }
+        })
 
         let these_mean_values = [];
         let these_std_values = [];
@@ -102,6 +109,7 @@ function handleWebsiteJson_(data) {
             these_std_values[i] / these_mean_values[i]
           );
         };
+
 
         ndvi_mean_data.push({
           type: 'scatter',
