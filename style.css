@@ -10,6 +10,15 @@ select {
   background: none;
 }
 
+.snappc {
+  max-width: 100% !important;
+  scroll-snap-type: y mandatory;
+}
+
+.snappch {
+  scroll-snap-align: start;
+}
+
 #ndvi {
   width: 95%;
   margin-left: 2.5%;

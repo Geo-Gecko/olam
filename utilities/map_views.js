@@ -18,12 +18,30 @@ let mapViews = {
     "Laos/Xekatam": [15.1508, 106.5523],
 }
 
+toastr.options = {
+    "closeButton": false,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "450",
+    "hideDuration": "1000",
+    "timeOut": "2000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
+
 function whenClicked(e) {
-    console.log(e);
-    // console.log(e.target.feature.properties.Name);
     document.querySelector('.zonedata').value = e.target.feature.properties.Name;
     setZonePlot(e.target.feature.properties.Name);
     setDTypePlot("mean")
+    toastr.clear()
+    toastr.success("", `Performance Line chart updated to ${e.target.feature.properties.Name}`)
 }
 
 function onMouseOver(e) {
