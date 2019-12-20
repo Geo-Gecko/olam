@@ -18,6 +18,24 @@ let mapViews = {
     "Laos/Xekatam": [15.1508, 106.5523],
 }
 
+let rangeselector = {
+    buttons: [
+        {
+            count: 1,
+            label: 'monthly',
+            step: 'month',
+            stepmode: 'backward'
+        },
+        {
+            count: 6,
+            label: 'bi-anually',
+            step: 'month',
+            stepmode: 'backward'
+        },
+        { step: 'all' }
+    ]
+}
+
 toastr.options = {
     "closeButton": false,
     "debug": false,
@@ -34,7 +52,7 @@ toastr.options = {
     "hideEasing": "linear",
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
-  }
+}
 
 function whenClicked(e) {
     document.querySelector('.zonedata').value = e.target.feature.properties.Name;
@@ -60,7 +78,7 @@ function onEachFeature(feature, layer) {
     });
     layer.bindPopup(
         `${feature.properties.Name} unit_id: ${
-            feature.properties.unit_id ? feature.properties.unit_id : feature.properties.SUB_BLOCK
+        feature.properties.unit_id ? feature.properties.unit_id : feature.properties.SUB_BLOCK
         }`
     );
 }

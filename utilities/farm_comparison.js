@@ -73,6 +73,13 @@ compareFarms = (region) => {
               size: 24
             }
           },
+          xaxis: {
+            autorange: true,
+            range: [farm_dates[0], farm_dates[farm_dates.length - 1]],
+            rangeselector: rangeselector,
+            rangeslider: {range: [farm_dates[0], farm_dates[farm_dates.length - 1]]},
+            type: 'date'
+          },
           paper_bgcolor: 'rgba(0,0,0,0)',
           plot_bgcolor: 'rgba(0,0,0,0)'
         },

@@ -166,6 +166,13 @@ function handleWebsiteJson_(data) {
               size: 24
             }
           },
+          xaxis: {
+            autorange: true,
+            range: [ndvi_date[0], ndvi_date[ndvi_date.length - 1]],
+            rangeselector: rangeselector,
+            rangeslider: {range: [ndvi_date[0], ndvi_date[ndvi_date.length - 1]]},
+            type: 'date'
+          },
           paper_bgcolor: 'rgba(0,0,0,0)',
           plot_bgcolor: 'rgba(0,0,0,0)'
         },
