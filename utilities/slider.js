@@ -19,12 +19,12 @@ $('#new_map').click( () => {
     use_in_date_picker = use_in_date_picker ?
      use_in_date_picker.split("/")[1] + '/' + use_in_date_picker.split("/")[1] : "Isanya/Isanya";
 
-
     // get mosaic layer
     layers = {
         "Zambia": ["Isanya", "Lukulu", "Luombe", "Ngoli", "Kateshi", "Nsunzu"],
         "Laos": ["Phetlamka", "TH", "TM", "Xekatam", "Kongtoun"],
-        "Tanzania": ["DivisionA", "DivisionB", "DivisionC"]
+        "Tanzania": ["DivisionA", "DivisionB", "DivisionC"],
+        "Brazil": ["brazilSubblocks"]
     }
 
     if ( use_in_date_picker.split("/")[0] == "Isanya") {
@@ -40,7 +40,8 @@ $('#new_map').click( () => {
         })
     })
 
-
+    mosaic_layer = (mosaic_layer === "brazilSubblocks") ? "Brazil" : mosaic_layer;
+    use_in_date_picker = (use_in_date_picker === "brazilSubblocks/brazilSubblocks") ? "Brazil" : use_in_date_picker;
 
     let p_ = selectedFromDate.split("/").reverse()
     let m_ = p_[2]

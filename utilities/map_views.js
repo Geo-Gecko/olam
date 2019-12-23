@@ -2,7 +2,7 @@
 
 let mapViews = {
     "Zambia/Isanya": [-8.81126, 31.33066],
-    "Brazil": [-12.28, -45.5],
+    "Brazil/brazilSubblocks": [-12.28, -45.5],
     "Tanzania/DivisionA": [-10.6995, 35.2637],
     "Tanzania/DivisionB": [-10.7167, 35.2523],
     "Tanzania/DivisionC": [-10.7288, 35.2357],

@@ -29,6 +29,8 @@ let callFarm = (selectedFarm) => {
         }
     }
 
+    // Brazil does not have sub-farms
+    selectedFarm = (selectedFarm === "Brazil/brazilSubblocks") ? "Brazil" : selectedFarm
     farm = selectedFarm
     let jsonUrl = "https://geogecko.gis-cdn.net/geoserver/Olam_Vector/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Olam_Vector:olamwebsitedata&outputFormat=text/javascript&format_options=callback:handleWebsiteJson";
     $.ajax(jsonUrl,
