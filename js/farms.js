@@ -92,7 +92,9 @@ function handleWebsiteJson_(data) {
 
       if (feature.properties.Name == zone) {
         let ndvi_mean_std_ = Object.keys(feature.properties).filter((str_) => {
-          if (str_.split("_")[0] === feature.id.split(".")[0]) {
+          let filter_ = feature.id.split(".")[0]
+          filter_ = (filter_ === "brazilSubblocks") ? "Brazil" : filter_
+          if (str_.split("_")[0] === filter_) {
             return str_
           }
         })
