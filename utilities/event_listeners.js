@@ -37,4 +37,6 @@ window.onload = function () {
         compareFarms(farmComparisonSelector.value);
     };
     farmComparisonSelector.addEventListener('change', updatRegion, false);
+
+    $('.carousel').carousel('pause');
 };
