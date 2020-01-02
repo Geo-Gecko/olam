@@ -156,7 +156,6 @@ function handleWebsiteJson_(data) {
 
     traces = { "std": ndvi_std_data, "mean": ndvi_mean_data, "cov": ndvi_cov_data }
     setDTypePlot = (dataType) => {
-      Plotly.purge("chartContainer")
       Plotly.newPlot(
         'chartContainer',
         traces[dataType],
