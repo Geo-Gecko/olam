@@ -76,7 +76,7 @@ compareFarms = (region) => {
             autorange: true,
             range: [farm_dates[0], farm_dates[farm_dates.length - 1]],
             rangeselector: rangeselector,
-            rangeslider: {range: [farm_dates[0], farm_dates[farm_dates.length - 1]]},
+            rangeslider: { range: [farm_dates[0], farm_dates[farm_dates.length - 1]] },
             type: 'date'
           },
           paper_bgcolor: 'rgba(0,0,0,0)',
@@ -87,3 +87,18 @@ compareFarms = (region) => {
     })
 }
 
+// stop youtube video on closing modal
+$('#helpModal').on('hidden.bs.modal', function (e) {
+
+  let player = new YT.Player('ytube', {
+    events: {
+      'onReady': onPlayerReady,
+    }
+  });
+
+  function onPlayerReady(event) {
+    if (event.target.getPlayerState() === 1) {
+      event.target.pauseVideo();
+    }
+  }
+})
