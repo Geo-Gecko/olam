@@ -87,18 +87,15 @@ compareFarms = (region) => {
     })
 }
 
+
+let player;
+function onYouTubePlayerAPIReady() {
+  player = new YT.Player('ytube');
+}
+
 // stop youtube video on closing modal
 $('#helpModal').on('hidden.bs.modal', function (e) {
-
-  let player = new YT.Player('ytube', {
-    events: {
-      'onReady': onPlayerReady,
-    }
-  });
-
-  function onPlayerReady(event) {
-    if (event.target.getPlayerState() === 1) {
-      event.target.pauseVideo();
-    }
+  if (player.getPlayerState() === 1) {
+    player.pauseVideo();
   }
 })
