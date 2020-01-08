@@ -68,7 +68,7 @@ compareFarms = (region) => {
           title: {
             text: `Farm Comparison for ${region}`,
             font: {
-              family: 'Times New, roman',
+              family: 'Arial, Helvetica, sans-serif',
               size: 24
             }
           },

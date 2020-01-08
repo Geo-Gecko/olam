@@ -10,6 +10,11 @@ select {
   background: none;
 }
 
+.btns:hover {
+  background-color: green !important;
+  color: white !important;
+}
+
 #csv {
   color: green;
 }
@@ -95,6 +100,7 @@ position:relative;
 
 #from, #to {
   max-width: 28% !important;
+  background-color: rgb(224, 224, 224);
 }
 
 input {
