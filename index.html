@@ -64,6 +64,11 @@
 <body>
   <div class="logo">
     <a href="https://www.olamgroup.com/" target="_blank"><img src="images/Olam.png" width="230px" height="auto"></a>
+    <button type="button" data-toggle="modal" data-target="#helpModal"
+      style="margin-left: 72.75%; background-color: transparent;"
+      class="btn btn-primary bg-success border-0 align-bottom btns">
+      About
+    </button>
   </div>
   <!-- <br /> -->
   <div class="content">
@@ -72,99 +77,83 @@
         <div class="col-md-12 card">
           <div class="card-header">
             <div class='datepicker row'>
-              <div class="col-md-2 float-left">
-                <h4>NDVI difference</h4>
-              </div>
-              <div class="col-md-3  float-left">
-                <select class="custom-select farmdata" style="width: 75%;">
+              <div class="col-md-4" style="padding-left: 0%;">
+                <select class="custom-select farmdata" style="width: 50%;">
                   <option selected disabled>Farm</option>
                 </select>
               </div>
-              <div class="col-md-2  float-left">
-                <a id="csv">Download CSV</a>
+              <div class="col-md-4">
+                <h4 style="margin-bottom: 1.075%; margin-top: 1.075%; text-align: center;">
+                  NDVI DIFFERENCE
+                </h4>
               </div>
-              <div class="col-md-4 float-right">
-                <label for="from">From:</label>
+              <div class="col-md-4" style="padding-right: 0%;">
+                <label for="from" style="margin-top: 1.4%; margin-bottom: 0%; margin-left: 8%;">From:</label>
                 <input type="text" id="from" name="from">
                 <span></span><label for="to">To:</label>
                 <input type="text" id="to" name="to">
-                <button id="new_map" type="button" class="btn btn-primary bg-success border-0">
+                <button id="new_map" type="button" style="background-color: transparent;"
+                  class="btn btn-primary-outline text-success border-0  float-right btns">
                   Apply
                 </button>
               </div>
-              <div class="col-md-1">
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary bg-success border-0" data-toggle="modal"
-                  data-target="#helpModal">
-                  About
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalTitle"
-                  aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="col-12 modal-title text-center" id="exampleModalLongTitle">
-                          ABOUT
-                        </h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <!-- carousel for about and tutorial -->
-                        <div id="aboutcarousel" class="carousel slide">
-                          <div class="carousel-inner d-flex justify-content-center">
-                            <div class="carousel-item active" style="min-height: 320px;">
-                              <br>
-                              <p class="d-flex justify-content-center" style="margin-left: 5%;">
-                                This portal presents NDVI derived for various Olam farms.
-                              </p>
-                              <p class="d-flex justify-content-center" style="margin-left: 5%;">
-                                NDVI quantifies vegetation health by measuring the difference
-                              </p>
-                              <p class="d-flex justify-content-center" style="margin-left: 5%;">
-                                between Near InfraRed and Red light. It ranges from -1 to 1.
-                              </p>
-                              <p class="d-flex justify-content-center" style="margin-left: 5%;">
-                                1 being very healthy vegetation.
-                              </p>
-                              <br>
-                              <p class="d-flex justify-content-center" style="margin-left: 5%;">
-                                On the next slide is displayed usage of the different features.
-                              </p>
-                            </div>
-                            <div class="carousel-item">
-                              <iframe id="ytube" width="100%" height="315"
-                                src="https://www.youtube.com/embed/oqF0mpchpqY?enablejsapi=1"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                            </div>
+              <!-- Modal -->
+              <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalTitle"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="col-12 modal-title text-center" id="exampleModalLongTitle">
+                        ABOUT
+                      </h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <!-- carousel for about and tutorial -->
+                      <div id="aboutcarousel" class="carousel slide">
+                        <div class="carousel-inner d-flex justify-content-center">
+                          <div class="carousel-item active" style="min-height: 320px;">
+                            <br>
+                            <p class="d-flex justify-content-center" style="margin-left: 5%;">
+                              This portal presents NDVI derived for various Olam farms.
+                            </p>
+                            <p class="d-flex justify-content-center" style="margin-left: 5%;">
+                              NDVI quantifies vegetation health by measuring the difference
+                            </p>
+                            <p class="d-flex justify-content-center" style="margin-left: 5%;">
+                              between Near InfraRed and Red light. It ranges from -1 to 1.
+                            </p>
+                            <p class="d-flex justify-content-center" style="margin-left: 5%;">
+                              1 being very healthy vegetation.
+                            </p>
+                            <br>
+                            <p class="d-flex justify-content-center" style="margin-left: 5%;">
+                              On the next slide is displayed usage of the different features.
+                            </p>
                           </div>
-                          <a
-                            class="carousel-control-prev"
-                            href="#aboutcarousel" role="button"
-                            data-slide="prev" style="height: 25%; top: 50%;"
-                          >
-                            <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                          </a
-                          >
-                          <a
-                            class="carousel-control-next"
-                            href="#aboutcarousel" role="button"
-                            data-slide="next" style="height: 25%; top: 50%;"
-                          >
-                            <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                          </a
-                          >
+                          <div class="carousel-item">
+                            <iframe id="ytube" width="100%" height="315"
+                              src="https://www.youtube.com/embed/oqF0mpchpqY?enablejsapi=1" frameborder="0"
+                              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                              allowfullscreen></iframe>
+                          </div>
                         </div>
+                        <a class="carousel-control-prev" href="#aboutcarousel" role="button" data-slide="prev"
+                          style="height: 25%; top: 50%;">
+                          <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#aboutcarousel" role="button" data-slide="next"
+                          style="height: 25%; top: 50%;">
+                          <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
                       </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary bg-success" data-dismiss="modal">Close</button>
-                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary bg-success" data-dismiss="modal">Close</button>
                     </div>
                   </div>
                 </div>
@@ -174,6 +163,11 @@
           <div class="card-body ">
             <div id="twentytwenty-container">
               <div id='mymap' style=" height:500px"></div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <a id="csv" class="float-left">Download CSV</a>
+              </div>
             </div>
           </div>
         </div>

@@ -163,7 +163,7 @@ function handleWebsiteJson_(data) {
           title: {
             text: `Farm Performance for ${zone}`,
             font: {
-              family: 'Times New, roman',
+              family: 'Arial, Helvetica, sans-serif',
               size: 24
             }
           },
