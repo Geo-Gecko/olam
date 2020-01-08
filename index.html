@@ -76,7 +76,9 @@
                 <h4>NDVI difference</h4>
               </div>
               <div class="col-md-3  float-left">
-                Farm: <select class="farmdata"></select>
+                <select class="custom-select farmdata" style="width: 75%;">
+                  <option selected disabled>Farm</option>
+                </select>
               </div>
               <div class="col-md-2  float-left">
                 <a id="csv">Download CSV</a>
@@ -181,15 +183,21 @@
   <br /><br />
   <div class="row" id="farmPerformance">
     <div class="mt-2 col-md-12">
-      Zone: <select class="zonedata"></select>
-      DataType: <select class="datatype"></select>
+      <select class="custom-select zonedata" style="width: 15%;">
+        <option selected disabled>Zone</option>
+      </select>
+      <select class="custom-select datatype" style="width: 15%;">
+        <option selected disabled>DataType</option>
+      </select>
       <div id="chartContainer"></div>
     </div>
   </div>
   <br /><br />
   <div class="row" id="farmPerformance">
     <div class="mt-2 col-md-12">
-      Region: <select class="farmcomparisondata"></select>
+      <select class="custom-select farmcomparisondata" style="width: 15%;">
+        <option selected disabled>Region</option>
+      </select>
       <div id="farmComparisonContainer"></div>
     </div>
   </div>

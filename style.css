@@ -28,7 +28,7 @@ select {
 }
 
 .card-header {
-  background-color: none !important;
+  background-color: transparent !important;
 }
 
 #geo-gecko {
