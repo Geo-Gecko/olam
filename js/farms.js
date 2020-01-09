@@ -13,7 +13,7 @@ let traces;
 let assignOptions = (textArray, selector) => {
 
   // empty dropdowns if this function is called again
-  $(`.${selector.className}`).empty();
+  $(`.${selector.className.split(" ")[1]}`).empty();
 
   textArray.forEach(i => {
     let currentOption = document.createElement('option');
