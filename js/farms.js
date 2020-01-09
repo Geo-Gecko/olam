@@ -12,8 +12,17 @@ let traces;
 // this should be in event_listeners.js
 let assignOptions = (textArray, selector) => {
 
+  let p_holder = $(`.${selector.className.split(" ")[1]}`)[0][0].text
+
   // empty dropdowns if this function is called again
   $(`.${selector.className.split(" ")[1]}`).empty();
+
+  let Option_ = document.createElement('option');
+  Option_.text = p_holder; Option_.setAttribute("selected", true)
+  Option_.text = p_holder; Option_.setAttribute("disabled", true);
+  selector.appendChild(
+    Option_
+  )
 
   textArray.forEach(i => {
     let currentOption = document.createElement('option');
