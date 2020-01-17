@@ -6,6 +6,7 @@ layers = {
   "Tanzania": ["DivisionA", "DivisionB", "DivisionC"]
 }
 
+// TODO - is the memory leak from not 'let'-ting these functions...I dunno...you tell me...
 compareFarms = (region) => {
   let requests_ = []
   layers[region].forEach(value => {

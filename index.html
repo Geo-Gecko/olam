@@ -33,6 +33,7 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="jquery.twentytwenty.js"></script>
+  <script src="jquery.csv.js"></script>
   <script src="jquery.event.move.js"></script>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
@@ -52,7 +53,7 @@
   <script src="js/leaflet-side-by-side.js"></script>
 
   <!-- use axios to fetch data -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script src="https://unpkg.com/axios@0.19.1/dist/axios.min.js"></script>
 
   <!-- toastr for popup messages -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
@@ -66,8 +67,7 @@
     <a class="navbar-brand" href="https://www.olamgroup.com/" target="_blank" style="font-size: 75%;">
       <img src="images/Olam.png" width="10%" height="auto"> <span></span> Monitoring with satellites
     </a>
-    <button type="button" data-toggle="modal" data-target="#helpModal"
-      style="background-color: transparent;"
+    <button type="button" data-toggle="modal" data-target="#helpModal" style="background-color: transparent;"
       class="btn bg-success border-0 align-bottom btns float-right">
       About
     </button>
@@ -199,6 +199,19 @@
       <div id="farmComparisonContainer"></div>
     </div>
   </div>
+  <br /><br />
+  <div class="row" id="farmPerformance">
+    <div class="mt-2 col-6">
+      <select class="custom-select farmtemprainmoistdata" style="width: 31%;">
+        <option selected disabled>Region</option>
+      </select>
+      <div id="prepTempContainer" style="width: inherit;"></div>
+    </div>
+    <div class="mt-2 col-6" style="padding-top: 3.5%;">
+      <div id="moistureContainer" style="width: inherit;"></div>
+    </div>
+
+  </div>
   <br />
 
   <script src="utilities/map_views.js" charset="utf-8"></script>
@@ -208,6 +221,7 @@
   <script src="utilities/slider.js"></script>
   <script src="utilities/event_listeners.js"></script>
   <script src="utilities/farm_comparison.js"></script>
+  <script src="utilities/preptempmoi.js"></script>
 
   <a href="https://www.geogecko.com/" target="_blank">
     <img src="images/geogecko0.png" id="geo-gecko" width="5%" height="7.5%">

@@ -3,6 +3,7 @@
 let dataTypeSelector = document.querySelector('.datatype');
 let farmSelector = document.querySelector('.farmdata');
 let farmComparisonSelector = document.querySelector('.farmcomparisondata');
+let farmtemprainmoistdataSelector = document.querySelector('.farmtemprainmoistdata')
 
 
 
@@ -16,6 +17,9 @@ window.onload = function () {
 
     // initial farm comparison chart
     compareFarms("Zambia")
+
+    // initial temparature-moisture-precipitation data
+    preptempmoisture("Isanya")
 
     assignOptions(['mean', 'std', 'cov'], dataTypeSelector)
     function updateDType() {
@@ -33,10 +37,16 @@ window.onload = function () {
     farmSelector.addEventListener('change', updateFarm, false);
 
     assignOptions(['Zambia', 'Laos', 'Tanzania'], farmComparisonSelector)
-    function updatRegion() {
+    function updateRegion() {
         compareFarms(farmComparisonSelector.value);
     };
-    farmComparisonSelector.addEventListener('change', updatRegion, false);
+    farmComparisonSelector.addEventListener('change', updateRegion, false);
+
+    assignOptions(places_, farmtemprainmoistdataSelector)
+    function updateData() {
+        preptempmoisture(farmtemprainmoistdataSelector.value);
+    };
+    farmtemprainmoistdataSelector.addEventListener('change', updateData, false);
 
     $('.carousel').carousel('pause');
 };

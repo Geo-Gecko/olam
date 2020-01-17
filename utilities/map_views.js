@@ -18,6 +18,18 @@ let mapViews = {
     "Zambia/Nsunzu": [-9.0895, 31.4475],
 }
 
+
+let places_ = [
+    'Brazil', 'DivisionA', 'DivisionB', 'DivisionC', 'Isanya', 'Kateshi',
+    'Kongtoun', 'Lukulu', 'Luombe', 'Ngoli', 'Nsunzu', 'Phetlamka', 'TH', 'Xekatam'
+]
+
+let months_ = {
+    "Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4, "May": 5, "Jun": 6,
+    "Jul": 7, "Aug": 8, "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12
+};
+
+
 let rangeselector = {
     buttons: [
         {
