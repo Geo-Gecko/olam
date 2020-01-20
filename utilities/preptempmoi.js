@@ -34,9 +34,9 @@ let chart_ = (data_, dates_, title_, chart_id) => Plotly.newPlot(
 
 
 let files_ = place => [
-    axios.get(`csvs/${place}_DayTemperature.csv`),
-    axios.get(`csvs/${place}_Precipitation.csv`),
-    axios.get(`csvs/${place}_SoilMoisture.csv`)
+    axios.get(`https://storage.googleapis.com/olam-cvs/${place}_DayTemperature.csv`),
+    axios.get(`https://storage.googleapis.com/olam-cvs/${place}_Precipitation.csv`),
+    axios.get(`https://storage.googleapis.com/olam-cvs/${place}_SoilMoisture.csv`)
 ]
 
 
