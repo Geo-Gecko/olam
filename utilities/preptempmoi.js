@@ -10,9 +10,9 @@ let chart_ = (data_, dates_, title_, chart_id) => Plotly.newPlot(
                 size: 24
             }
         },
-        yaxis: { title: chart_id === "prepTempContainer" ? 'Precipitation' : 'soil moisture' },
+        yaxis: { title: chart_id === "prepTempContainer" ? 'Temperature' : 'soil moisture' },
         yaxis2: chart_id === "prepTempContainer" ? {
-            title: 'Temperature',
+            title: 'Precipitation',
             titlefont: { color: 'rgb(148, 103, 189)' },
             tickfont: { color: 'rgb(148, 103, 189)' },
             overlaying: 'y',
@@ -77,7 +77,9 @@ preptempmoisture = place_ =>
                 let moist_values = []
                 data_.forEach(temp => {
                     if (temp["LST_Day_1km"]) {
-                        temp_values.push(parseInt(temp["LST_Day_1km"].replace(",", "")))
+                        let value_ = parseInt(temp["LST_Day_1km"].replace(",", ""))
+                        value_ = (value_ * 0.02) - 273.15
+                        temp_values.push(value_)
                     } else if (temp["precipitation"]) {
                         temp_values.push(parseInt(temp["precipitation"].replace(",", "")))
                     } else if (temp["ssm"]) {
