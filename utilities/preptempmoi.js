@@ -90,7 +90,7 @@ preptempmoisture = place_ =>
                         type: Object.keys(data_[0])[1] === 'precipitation' ? 'bar' : 'scatter',
                         mode: 'lines',
                         line: { shape: 'spline' },
-                        name: Object.keys(data_[0])[1] === 'precipitation' ? 'precipitation' : 'rainfall',
+                        name: Object.keys(data_[0])[1] === 'precipitation' ? 'precipitation' : 'temperature',
                         yaxis: `y${index + 1}`,
                         x: dates_[Object.keys(data_[0])[1]],
                         y: temp_values
