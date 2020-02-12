@@ -206,3 +206,7 @@ p {
 .datepicker {
   z-index: 9999 !important;
 }
+
+.card-ndvi {
+  border-radius: 50px 50px 50px 50px; 
+}
