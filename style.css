@@ -18,6 +18,10 @@ select {
   color: green;
 }
 
+#color-btn {
+  color: green !important; 
+}
+
 #ndvi {
   width: 95%;
   margin-left: 2.5%;
@@ -29,6 +33,7 @@ select {
   scroll-snap-type: y mandatory;
   background: #fff;
   width: 92.5%;
+  border-radius: 2rem;
 }
 
 .card-header {
@@ -207,6 +212,3 @@ p {
   z-index: 9999 !important;
 }
 
-.card-ndvi {
-  border-radius: 50px 50px 50px 50px; 
-}
