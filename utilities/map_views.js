@@ -45,7 +45,10 @@ let rangeselector = {
             step: 'month',
             stepmode: 'backward'
         },
-        { step: '<b>All<b>' }
+        {
+            label: '<b>All<b>',
+            step:   'all'
+        }
     ]
 }
 
