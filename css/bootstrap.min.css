@@ -533,7 +533,8 @@ pre code {
   margin-left: auto;
   padding-right: 15px;
   padding-left: 15px;
-  width: 100%
+  width: 100%;
+  margin: 0 auto !important;
 }
 
 @media (min-width:576px) {
@@ -566,7 +567,12 @@ pre code {
   margin-left: auto;
   padding-right: 15px;
   padding-left: 15px;
-  width: 100%
+  
+  
+}
+
+.container-down {
+  margin-top: 90px !important;
 }
 
 .row {
@@ -3003,6 +3009,7 @@ tbody.collapse.show {
   opacity: 0
 }
 
+
 .custom-file-control {
   position: absolute;
   top: 0;
@@ -3147,7 +3154,11 @@ tbody.collapse.show {
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: .5rem 1rem
+  padding: .5rem 1rem;
+  position: fixed !important;
+  top: 0 !important; 
+  left: 0 !important;
+  width: 100% !important;
 }
 
 .navbar>.container, .navbar>.container-fluid {
@@ -3158,17 +3169,24 @@ tbody.collapse.show {
   -ms-flex-align: center;
   align-items: center;
   -ms-flex-pack: justify;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 .navbar-brand {
-  display: inline-block;
+  display: block !important;
   padding-top: .3125rem;
   padding-bottom: .3125rem;
   margin-right: 1rem;
   font-size: 1.25rem;
   line-height: inherit;
-  white-space: nowrap
+  white-space: nowrap;
+  
+}
+.fixed-top {
+  position:fixed !important;
+  top: 0 !important;
+  left: 0 !important; 
+  overflow: hidden !important;
 }
 
 .navbar-brand:focus, .navbar-brand:hover {
@@ -3182,7 +3200,9 @@ tbody.collapse.show {
   flex-direction: column;
   padding-left: 0;
   margin-bottom: 0;
-  list-style: none
+  list-style: none;
+  
+
 }
 
 .navbar-nav .nav-link {
@@ -3561,13 +3581,14 @@ tbody.collapse.show {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
-  flex-direction: column;
+  flex-direction: column; 
   min-width: 0;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, .125);
-  border-radius: .25rem
+  border-radius: 40rem !important;
+  
 }
 
 .card-body {

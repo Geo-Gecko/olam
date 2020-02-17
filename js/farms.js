@@ -132,7 +132,7 @@ function handleWebsiteJson_(data) {
           type: 'scatter',
           mode: 'lines+marker',
           line: { shape: 'spline' },
-          name: `unit_${
+          name: `Unit_${
             feature.properties.unit_id ? feature.properties.unit_id : feature.properties.SUB_BLOCK
             }`,
           x: ndvi_date,
@@ -143,7 +143,7 @@ function handleWebsiteJson_(data) {
           type: 'scatter',
           mode: 'lines+marker',
           line: { shape: 'spline' },
-          name: `unit_${
+          name: `Unit_${
             feature.properties.unit_id ? feature.properties.unit_id : feature.properties.SUB_BLOCK
             }`,
           x: ndvi_date,
@@ -154,7 +154,7 @@ function handleWebsiteJson_(data) {
           type: 'scatter',
           mode: 'lines+marker',
           line: { shape: 'spline' },
-          name: `unit_${
+          name: `Unit_${
             feature.properties.unit_id ? feature.properties.unit_id : feature.properties.SUB_BLOCK
             }`,
           x: ndvi_date,
@@ -170,10 +170,10 @@ function handleWebsiteJson_(data) {
         traces[dataType],
         {
           title: {
-            text: `Farm Performance for ${zone}`,
+            text: `<b>Farm Performance for ${zone}<b>`,
             font: {
               family: 'Arial, Helvetica, sans-serif',
-              size: 24
+              size: 28
             }
           },
           xaxis: {

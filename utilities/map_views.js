@@ -34,17 +34,21 @@ let rangeselector = {
     buttons: [
         {
             count: 1,
-            label: 'monthly',
+            label: '<b>Monthly<b>',
+            step: 'month',
+            stepmode: 'backward',
+            
+        },
+        {
+            count: 6,
+            label: '<b>Bi-Anually<b>',
             step: 'month',
             stepmode: 'backward'
         },
         {
-            count: 6,
-            label: 'bi-anually',
-            step: 'month',
-            stepmode: 'backward'
-        },
-        { step: 'all' }
+            label: '<b>All<b>',
+            step:   'all'
+        }
     ]
 }
 

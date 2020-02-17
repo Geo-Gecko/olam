@@ -67,11 +67,12 @@ compareFarms = (region) => {
         ndvi_mean_data,
         {
           title: {
-            text: `Farm Comparison for ${region}`,
+            text: `<b>Farm Comparison for ${region}</b>`,
             font: {
               family: 'Arial, Helvetica, sans-serif',
-              size: 24
+              size: 28
             }
+            
           },
           xaxis: {
             autorange: true,

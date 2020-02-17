@@ -7,7 +7,7 @@ let chart_ = (data_, dates_, title_, chart_id) => Plotly.newPlot(
             text: title_,
             font: {
                 family: 'Arial, Helvetica, sans-serif',
-                size: 24
+                size: 28
             }
         },
         yaxis: { title: chart_id === "prepTempContainer" ? 'Temperature' : 'soil moisture' },
@@ -113,9 +113,9 @@ preptempmoisture = place_ =>
 
             })
             if (soilMoistureData.length > 0) {
-                chart_(soilMoistureData, dates_, `Soil Moisture for ${place_}`, 'moistureContainer')
+                chart_(soilMoistureData, dates_, `<b>Soil Moisture for ${place_}<b>`, 'moistureContainer')
             }
             if (prepTempData.length > 0) {
-                chart_(prepTempData, dates_, `Temperature and Precipation for ${place_}`, 'prepTempContainer')
+                chart_(prepTempData, dates_, `<b>Temperature and Precipation for ${place_}<b>`, 'prepTempContainer')
             }
         })
