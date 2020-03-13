@@ -63,20 +63,55 @@ function handleWebsiteJson_(data) {
 
   set_mgt_zones.clear()
   mgt_zones.length = 0
+
+  let bounds = [];
   // get mgt zones as unique strings for the buttons
   data.features.forEach(feature => {
 
     // get the different fields for a region
     if (feature.geometry) {
-      L.geoJson(
+      var geojson = L.geoJson(
         feature,
         { onEachFeature: onEachFeature }
       ).addTo(map);
+      bounds.push(geojson.getBounds());
     }
 
     set_mgt_zones.add(feature.properties.Name)
     mgt_zones = Array.from(set_mgt_zones)
   });
+
+  //based on https://stackoverflow.com/questions/53385989/get-bounds-with-leaflet
+  let minlat = 200, minlon = 200, maxlat = -200, maxlon = -200;
+  
+  bounds.forEach(function(d, i) {
+
+      // find corners
+      if (minlat > d._southWest.lat) minlat = d._southWest.lat;
+      if (minlon > d._southWest.lng) minlon = d._southWest.lng;
+      if (maxlat < d._northEast.lat) maxlat = d._northEast.lat;
+      if (maxlon < d._northEast.lng) maxlon = d._northEast.lng;
+  });
+  
+  let c1 = L.latLng(minlat, minlon);
+  let c2 = L.latLng(maxlat, maxlon);
+
+  // let c1max = L.latLng(minlat-0.05, minlon-0.05);
+  // let c2max = L.latLng(maxlat+0.05, maxlon+0.05);
+
+  // fit bounds
+  map.fitBounds(L.latLngBounds(c1, c2));
+
+  map.setMa
+
+  // map.setMaxBounds(L.latLngBounds(c1max, c2max));
+
+  // correct zoom to fit all features
+  setTimeout(function() {
+    map.setZoom(map.getZoom() - 0.5);
+    console.log(map)
+    map.options.minZoom = map.getZoom();
+  }, 500);
 
   mgt_zones.sort((a, b) => {
     a = parseInt(a.split(' ')[1]);
