@@ -59,7 +59,7 @@ function handleWebsiteJson(data) {
 }
 
 function days_(date) {
-    let m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
+    let m = date.getMonth(), d = (date.getDate() < 10 ? '0' : '') + date.getDate(), y = date.getFullYear();
     if ($.inArray(y + '-' + months[m] + '-' + d, available_dates) != -1) {
         return [true];
     }

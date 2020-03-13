@@ -96,20 +96,14 @@ function handleWebsiteJson_(data) {
   let c1 = L.latLng(minlat, minlon);
   let c2 = L.latLng(maxlat, maxlon);
 
-  // let c1max = L.latLng(minlat-0.05, minlon-0.05);
-  // let c2max = L.latLng(maxlat+0.05, maxlon+0.05);
 
   // fit bounds
   map.fitBounds(L.latLngBounds(c1, c2));
 
-  map.setMa
-
-  // map.setMaxBounds(L.latLngBounds(c1max, c2max));
 
   // correct zoom to fit all features
   setTimeout(function() {
     map.setZoom(map.getZoom() - 0.5);
-    console.log(map)
     map.options.minZoom = map.getZoom();
   }, 500);
 
