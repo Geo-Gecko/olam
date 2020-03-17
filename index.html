@@ -82,20 +82,24 @@
         <div class="col-md-12 card" id="cardBorder" style="border-radius: 2rem;">
           <div class="card-header">
             <div class='datepicker row'>
-              <div class="col-md-4" style="padding-left: 0%;">
-                <select class="custom-select farmdata" style="width: 50%;">
+              <div
+                class="col-xl-4 d-flex justify-content-sm-center justify-content-xl-start"
+                style="padding-left: 0%;"
+                >
+                <select class="custom-select farmdata" style="width: 55%;">
                   <option selected disabled>Farm</option>
                 </select>
               </div>
-              <div class="col-md-4">
+              <div class="col-xl-4 d-flex justify-content-sm-center">
                 <h4 style="margin-bottom: 1.075%; margin-top: 1.075%; text-align: center;  font-weight: bold;">
                   NDVI DIFFERENCE
                 </h4>
               </div>
-              <div class="col-md-4" style="padding-right: 0%;">
-                <label for="from" style="margin-top: 1.4%; margin-bottom: 0%; margin-left: 8%;">From:</label>
+              <div class="col-xl-4 d-flex justify-content-sm-center align-items-center" style="padding-right: 0%;">
+                <label for="from" style="margin-top: 1.4%; margin-left: 1%;">From:</label>
                 <input type="text" id="from" name="from">
-                <span></span><label for="to">To:</label>
+                <span></span>
+                <label for="to" style="margin-top: 1.4%; margin-left: 1%;">To:</label>
                 <input type="text" id="to" name="to">
                 <button id="new_map" type="button" style="background-color: transparent;"
                   class="btn btn-primary-outline text-success border-0  float-right btns">
@@ -167,7 +171,7 @@
           </div>
           <div class="card-body ">
             <div id="twentytwenty-container">
-              <div id='mymap' style=" height:500px"></div>
+              <div id='mymap' style=" height:500px; z-index: 1;"></div>
             </div>
            
             <div class="row">
