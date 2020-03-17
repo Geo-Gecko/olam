@@ -99,7 +99,7 @@ position:relative;
 
 .datepicker{
   position: relative;
-    border:1px solid lightgray;
+  border:1px solid lightgray;
 }
 
 #from, #to {
@@ -206,9 +206,5 @@ p {
 .footer{
   background-color: #808080;
   padding-bottom: 175px;
-}
-
-.datepicker {
-  z-index: 9999 !important;
 }
 
